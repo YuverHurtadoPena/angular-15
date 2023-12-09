@@ -1,0 +1,22 @@
+<div class="container mt-4">
+ <form class="mb-3">
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder="Buscar cóctel" [(ngModel)]="searchTerm" [ngModelOptions]="{standalone: true}" (input)="searchCocktailByName()">
+
+  </div>
+</form>
+
+
+  <div class="row">
+    <div *ngFor="let cocktail of drinkDto" class="col-md-4 mb-4">
+      <div class="card">
+        <img src="{{ cocktail.strDrinkThumb }}" class="card-img-top" alt="{{ cocktail.strDrink }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ cocktail.strDrink }}</h5>
+          <p class="card-text">ID: {{ cocktail.idDrink }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
