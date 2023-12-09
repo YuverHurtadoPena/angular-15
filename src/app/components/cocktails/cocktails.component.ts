@@ -3,10 +3,15 @@ import { CommonModule } from '@angular/common';
 import { CocktailService } from 'src/app/service/cocktail.service';
 import { Drink } from 'src/app/dto/drink';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
+
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { DetailCocktailComponent } from '../detail-cocktail/detail-cocktail.component';
+import { MatIconModule } from "@angular/material/icon";
+
 @Component({
   selector: 'app-cocktails',
   standalone: true,
-  imports: [CommonModule,FormsModule,ReactiveFormsModule],
+  imports: [ CommonModule,FormsModule,ReactiveFormsModule, MatDialogModule, MatIconModule],
   templateUrl: './cocktails.component.html',
   styleUrls: ['./cocktails.component.css']
 })
@@ -14,7 +19,7 @@ export class CocktailsComponent implements OnInit {
   drinkDto: Drink[] = [];
   searchTerm: string = '';
 
-  constructor(private cocktailService: CocktailService) {}
+  constructor(private cocktailService: CocktailService,private dialog: MatDialog,) {}
   ngOnInit(): void {this. getCocktailsByCategory("Cocktail");
   }
 
@@ -49,5 +54,10 @@ export class CocktailsComponent implements OnInit {
     this. getCocktailsByCategory("Cocktail");
   }
 }
-
+openDialog(idCockatail:string ) {
+  this.dialog.open(DetailCocktailComponent, {
+    width: '500px',
+    data: {id: idCockatail }
+  });
+}
 }

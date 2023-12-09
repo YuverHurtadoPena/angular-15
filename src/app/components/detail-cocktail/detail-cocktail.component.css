@@ -1,0 +1,35 @@
+.cocktail-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+
+
+}
+
+img {
+  max-width: 20%;
+  height: auto;
+  border-radius: 8px;
+
+
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+select {
+  width: 70%;
+  margin-right: 10px;
+}
+
+button {
+  width: 25%;
+}

@@ -1,0 +1,19 @@
+<div class="container cocktail-container">
+  <h2>{{ cocktailDetails.strDrink }}</h2>
+  <img src="{{ cocktailDetails.strDrinkThumb }}">
+
+  <ul>
+    <li><strong>ID:</strong> {{ cocktailDetails.idDrink }}</li>
+    <li><strong>Category:</strong> {{ cocktailDetails.strCategory }}</li>
+    <li><strong>Alcoholic:</strong> {{ cocktailDetails.strAlcoholic }}</li>
+    <li><strong>Instructions:</strong> {{ cocktailDetails.strInstructions }}</li>
+    <li><strong>Ingredients:</strong>
+      <div class="d-flex align-items-center">
+        <select class="form-control" [(ngModel)]="selectedIngredient">
+          <option *ngFor="let ingredient of cocktailDetails.strIngredients" [value]="ingredient">{{ ingredient }}</option>
+        </select>
+        <button class="btn btn-primary" (click)="searchByIngredient()">Buscar</button>
+      </div>
+    </li>
+  </ul>
+</div>
